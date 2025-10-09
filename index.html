@@ -334,22 +334,121 @@
       color: #8c40af;
     }
 
-    /* === RESPONSIVIDADE === */
-    @media (max-width: 768px) {
-      .bloco1 { flex-direction: column; text-align: center; }
-      .bloco1 h3, .bloco1 p { text-align: center; }
-      .bloco1 img { width: 80%; margin-top: 20px; }
-      .bloco2 { flex-direction: column; text-align: center; }
-      .bloco2 h3, .bloco2 p { text-align: center; }
-      .bloco2 img { width: 80%; margin-top: 20px; }
-      .bloco3 { flex-direction: column; text-align: center; }
-      .bloco3 h3, .bloco3 p { text-align: center; }
-      .bloco3 img { width: 80%; margin-top: 20px; }  
-      .bloco4 { flex-direction: column; text-align: center; }
-      .bloco4 h3, .bloco4 p { text-align: center; }
-      .bloco4 img { width: 80%; margin-top: 20px; }
-    }
-  
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  /* Geral */
+  section {
+    padding: 50px 5%;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.3em;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  /* Ajustes das seções principais */
+  .bloco1,
+  .bloco2,
+  .bloco3,
+  .bloco4 {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+    padding: 40px 5%;
+  }
+
+  .bloco1 h3,
+  .bloco2 h3,
+  .bloco3 h3,
+  .bloco4 h3,
+  .bloco1 p,
+  .bloco2 p,
+  .bloco3 p,
+  .bloco4 p {
+    text-align: center;
+    width: 100%;
+  }
+
+  .bloco1 img,
+  .bloco2 img,
+  .bloco3 img,
+  .bloco4 img {
+    width: 85%;
+    max-width: 400px;
+    height: auto;
+    margin: 15px auto 0;
+    border-radius: 15px;
+    display: block;
+  }
+
+  /* Modalidades */
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .modalidade {
+    width: 90%;
+    font-size: 16px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .texto-box {
+    position: static;
+    transform: none;
+    width: 90%;
+    margin: 10px auto;
+    display: none;
+  }
+
+  .texto-box.mostrar {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Botão */
+  .btn-participar {
+    width: 90%;
+    font-size: 0.95em;
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  /* Chatbot */
+  .chat-button {
+    width: 55px;
+    height: 55px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .chat-container {
+    width: 95%;
+    right: 2.5%;
+    height: 70vh;
+    bottom: 80px;
+  }
+}
+
+/* === TELAS MENORES (CELULARES PEQUENOS) === */
+@media (max-width: 480px) {
+  h3 { font-size: 1.15em; }
+  p { font-size: 0.95em; }
+  .bloco1 img, .bloco2 img, .bloco3 img, .bloco4 img { width: 90%; }
+  .btn-participar { font-size: 0.9em; padding: 10px; }
+  .chat-button { width: 50px; height: 50px; }
+}
+
 
   </style>
 </head>
@@ -429,7 +528,7 @@
   </section>
 
   <section class="bloco4" id="projeto-social">
-    <a href="projeto-social.html"><img src="logo-projeto.png.png" alt="Logo Projeto Cuidar de quem Ensina" style="width: 200px; margin-bottom: 20px;"></a>
+    <a href="projeto-social.html", target="_blank"><img src="logo-projeto.png.png" alt="Logo Projeto Cuidar de quem Ensina" style="width: 200px; margin-bottom: 20px;"></a>
     <h3 style="color:#834096">Projeto Social - Cuidar de quem Ensina</h3>
     <div class="bloco4-texto"></div>
     <strong><p>O projeto "Cuidar de quem Ensina" é uma iniciativa dedicada a oferecer suporte emocional e psicológico aos educadores, reconhecendo os desafios únicos que enfrentam no ambiente escolar.</p>
