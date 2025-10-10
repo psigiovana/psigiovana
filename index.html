@@ -69,7 +69,6 @@
       gap: 40px;
       flex-wrap: wrap;
     }
-
     .bloco1 img {
       width: 500px;
       border-radius: 15px;
@@ -94,6 +93,12 @@
       font-size: 1.1em;
       line-height: 1.6;
       text-align: left;
+    }
+
+    .bloco1 a{
+      text-decoration: underline;
+      color: var(--vinho);
+
     }
 
     .bloco2 {
@@ -241,6 +246,18 @@
 
     }
 
+    .bloco5 a{
+      text-decoration: underline;
+      color: var(--rosa-escuro);
+
+    }
+
+    .bloco5 img {
+      width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }    
+
     .bloco2 { background-color: var(--rosa-medio); }
     .bloco3 { background-color: var(--rosa-escuro); color: #fff; }
     .bloco4 { background-color: var(--rosa-claro); }
@@ -271,6 +288,10 @@
       color: #fff;
       font-weight: bold;
       text-decoration: none;
+    }
+
+    footer .crp-link{
+      color: #ffffffff;
     }
 
     footer a:hover {
@@ -641,6 +662,49 @@ margin: 5px;
   }
 }
 
+.crp-link {
+  position: relative;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.crp-link::after {
+  content: "Clique aqui para consultar no CRP-PR!";
+  position: absolute;
+  bottom: 125%; /* acima do link */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color:#be2761;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  font-size: 0.85em;
+  z-index: 10;
+}
+
+.crp-link::before {
+  content: "";
+  position: absolute;
+  bottom: 115%; /* ajusta o triângulo */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color:#be2761 transparent transparent transparent;
+  opacity: 10;
+  transition: opacity 0.3s ease;
+  color: #f3c8d8;
+}
+
+.crp-link:hover::after,
+.crp-link:hover::before {
+  opacity: 1;
+}
 
 
   </style>
@@ -672,7 +736,7 @@ margin: 5px;
   <!-- ===== BLOCO 1 ===== -->
   <section class="bloco1" id="inicio">
     <div><a href="#sobre-mim"><img class="foto-da-linda" src="page photo init.png" alt="Psicóloga Giovana Morais"></a>
-    <h3 style="font-size: 20px; text-align: center; margin-top: 30px;">Psicóloga Giovana Morais CRP:08/45995</h3> </div>
+    <h3 style="font-size: 20px; text-align: center; margin-top: 30px;">Psicóloga Giovana Morais <a class="crp-link" href="https://cadastro.cfp.org.br/visualizar.html?profissional=Myl1JupBquk88JhNGRxl0vdzDjT%2F9OffKVqNW7tXE8g%3D">CRP-PR:08/45995</a></a></h3> </div>
     <div class="bloco1-texto">
       <h3>A psicoterapia é um encontro consigo mesmo</h3>
       <p>A terapia é um convite ao autoconhecimento, um caminho para enfrentar os desafios da vida com leveza e transformar-se de dentro pra fora.</p>
@@ -737,8 +801,10 @@ margin: 5px;
  <!-- ===== BLOCO 5 ===== -->
   <section class="bloco5" id="sobre-mim">
     <h3>Sobre Mim</h3>
+    <div> <img class="foto-da-linda" src="page photo init sobre mim.png" alt="Psicóloga Giovana Morais"></div>
     <div class="bloco5-texto"></div> <br><br>
-    <strong><p>Eu sou a Psicóloga Giovana de Morais Gomes (CRP-PR 08/45995), formada pela Unicesumar e atualmente pós-graduanda em Gestalt-Terapia.</p>
+    <strong><p>Eu sou a Psicóloga Giovana de Morais Gomes <a href="https://cadastro.cfp.org.br/visualizar.html?profissional=Myl1JupBquk88JhNGRxl0vdzDjT%2F9OffKVqNW7tXE8g%3D" target="_blank"  class="crp-link">(CRP-PR 08/45995)</a>, 
+      formada pela Unicesumar e atualmente pós-graduanda em Gestalt-Terapia pelo Instituto Gestalt Paraná. </p>
     <p>Escolhi a psicologia por acreditar na potência do encontro humano e na importância de um espaço de escuta verdadeira,</p>
     <p>onde cada pessoa possa se sentir acolhida, respeitada e compreendida em sua singularidade.</p> <br>
     <p>Ao longo da minha trajetória, idealizei o projeto “Cuidar de Quem Ensina”,voltado para educadores e profissionais da área da educação</p>
@@ -873,7 +939,7 @@ margin: 5px;
 
 
   <footer>
-    <p>© 2025 Giovana Morais - Psicóloga Clínica CRP: 08/45995</p>
+    <p>© 2025 Giovana Morais - Psicóloga Clínica <a href="https://cadastro.cfp.org.br/visualizar.html?profissional=Myl1JupBquk88JhNGRxl0vdzDjT%2F9OffKVqNW7tXE8g%3D" class="crp-link">CRP-PR: 08/45995</a></p>
     <p> Maringá-PR - Contato <a href="https://wa.me/5544997112467" target="_blank">(44)99711-2767</a></p>
     <div class="social-icons">
       <a href="https://www.instagram.com/psi.giovanamorais/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
