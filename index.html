@@ -180,8 +180,8 @@
     }
 
     .bloco4-texto p{
-      max-width: 500px;
-      text-align: left;
+      max-width: 700px;
+      text-align: justify;
       margin-bottom: 15px;
       
     }
@@ -199,7 +199,42 @@
       color: #834096;;
       font-size: 1.1em;
       line-height: 1.6;
+      text-align: justify;
+      width: 700px;
+
+    }
+
+    .bloco5 {
+      background-color: var(--rosa-escuro);
+      display: flex;          /* flex para alinhar imagem e texto */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      
+    }
+
+    .bloco5-texto p{
+      max-width: 700px;
+      text-align: justify;
+      margin-bottom: 15px;
+      
+    }
+
+    .bloco5-texto h3 {
+      font-style: italic;
+      color: var(--vinho);
+      font-weight: bold;
+      margin-bottom: 20px;
       text-align: left;
+      
+    }
+
+    .bloco5 p {
+      color: #e26e9b;;
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: justify;
       width: 700px;
 
     }
@@ -353,7 +388,12 @@
     margin-bottom: 15px;
   }
 
-  /* Ajustes das seções principais */
+  .bloco3 p {
+    justify-content: center;
+
+  }
+
+
   .bloco1,
   .bloco2,
   .bloco3,
@@ -449,6 +489,134 @@
   .chat-button { width: 50px; height: 50px; }
 }
 
+.accordion-item {
+text-align: left;
+
+}
+
+    .bloco7 {
+      background-color: var(--rosa-claro);
+      display: flex;          /* flex para alinhar imagem e texto */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      background-color:var(--rosa-medio);
+    }
+
+    .bloco7 img {
+      width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .bloco7-texto p{
+      max-width: 500px;
+      text-align: left;
+      margin-bottom: 15px;
+      
+    }
+
+    .bloco7-texto h3 {
+      font-style: italic;
+      color: var(--vinho);
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .bloco7 p {
+      color: #000;
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .col-md-4 {    /* Class Cards*/  
+      margin-top: 150px;
+      width: 100px;
+    }
+
+    .card-footer.text-muted.text-end {
+      color:#be2761 !important;
+      text-align: center !important;
+
+
+    }
+
+    .card-text{
+      color:#444 !important;
+      width: 200px;
+      margin: 15px;
+      margin-top: 1px;
+      text-align: left !important;
+      font-size: 15px !important;
+
+    }
+
+    .d-flex.justify-content-center{
+      width: auto !important;
+      height: 250px !important;
+      max-width: 100% !important;
+      justify-content: center !important;
+      
+
+    }
+
+.carousel-item{
+      width: 1000px !important;
+      height: auto !important;
+    }
+
+    /* Cards do carrossel de depoimentos */
+.depoimento-card {
+  width: 1500px !important;
+  min-height: 18rem !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.depoimento-body {
+  font-size: 1.1rem;
+  width: 500rem !important;
+}
+
+.depoimento-footer {
+  font-size: 1rem;
+  color: #be2761;
+  width: 1000px !important;
+  height: auto !important;
+}
+
+.card-body{
+  width: 1000px !important;
+  max-width: 100% !important;
+
+}
+
+
+/* Responsividade */
+@media (max-width: 992px) { /* tablets */
+  .depoimento-card {
+    width: 20rem;
+    min-height: 16rem;
+  }
+}
+
+@media (max-width: 576px) { /* celulares */
+  .depoimento-card {
+    width: 16rem;
+    min-height: 14rem;
+  }
+  .depoimento-body {
+    font-size: 1rem;
+  }
+  .depoimento-footer {
+    font-size: 0.9rem;
+  }
+}
+
+
 
   </style>
 </head>
@@ -519,14 +687,15 @@
   <!-- ===== BLOCO 3 ===== -->
   <section class="bloco3" id="minha-abordagem">
     <h3 style="color:#f3c8d8">Minha Abordagem: Gestalt-Terapia</h3>
+    <div class="bloco4-texto">
     <p>A Gestalt-Terapia é uma abordagem que valoriza o aqui e agora, focando na experiência presente e na consciência do indivíduo.</p>
     <p>Ela promove o autoconhecimento, a responsabilidade pessoal e a integração entre mente e corpo, ajudando a lidar com emoções, relacionamentos e desafios da vida.</p>
     <p>Na prática, a Gestalt-Terapia utiliza técnicas como o diálogo, a experimentação e a exploração de sonhos, incentivando a expressão autêntica e o desenvolvimento pessoal.</p>
     <p>É uma abordagem humanista que valoriza a singularidade de cada pessoa, promovendo um espaço seguro para o crescimento e a transformação.</p>
-    <p>Se você busca uma terapia que valorize sua experiência única e promova o autoconhecimento, a Gestalt-Terapia pode ser uma excelente escolha.</p>
+    <p>Se você busca uma terapia que valorize sua experiência única e promova o autoconhecimento, a Gestalt-Terapia pode ser uma excelente escolha.</p></div>
 
   </section>
-
+ <!-- ===== BLOCO 4 ===== -->
   <section class="bloco4" id="projeto-social">
     <a href="projeto-social.html", target="_blank"><img src="logo-projeto.png.png" alt="Logo Projeto Cuidar de quem Ensina" style="width: 200px; margin-bottom: 20px;"></a>
     <h3 style="color:#834096">Projeto Social - Cuidar de quem Ensina</h3>
@@ -540,11 +709,20 @@
     <button class="btn-participar">Quero Conhecer Melhor</button>
     </a>
   </section>
-
+ <!-- ===== BLOCO 5 ===== -->
   <section class="bloco5" id="sobre-mim">
     <h3>Sobre Mim</h3>
+    <div class="bloco5-texto"></div> <br><br><br><br>
+    <strong><p>Eu sou a Psicóloga Giovana de Morais Gomes (CRP-PR 08/45995), formada pela Unicesumar e atualmente pós-graduanda em Gestalt-Terapia.</p>
+    <p>Escolhi a psicologia por acreditar na potência do encontro humano e na importância de um espaço de escuta verdadeira,</p>
+    <p>onde cada pessoa possa se sentir acolhida, respeitada e compreendida em sua singularidade.</p> <br>
+    <p>Ao longo da minha trajetória, idealizei o projeto “Cuidar de Quem Ensina”,voltado para educadores e profissionais da área da educação</p>
+    <p>pois acredito profundamente que quem dedica sua vida a ensinar também merece cuidado, atenção e um espaço seguro para falar de suas dores, conquistas e desafios.</p><br>
+    <p>Meu trabalho é pautado na escuta sensível, na empatia e na construção de vínculos de confiança, sempre com a delicadeza e o respeito que cada história merece.</p>
+    <p>Caminhar junto às pessoas em seus processos é, para mim, um privilégio e uma missão que levo com muita responsabilidade e amor.</p></strong>
+    
   </section>
-
+ <!-- ===== BLOCO 6 ===== -->
   <section class="bloco6" id="duvidas-frequentes">
     <h3>Dúvidas Frequentes</h3>
 
@@ -556,7 +734,7 @@
           </button>
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">A psicoterapia é um processo de autoconhecimento e cuidado emocional...</div>
+          <div class="accordion-body">A psicoterapia é um processo de autoconhecimento e cuidado emocional, em que o paciente encontra um espaço seguro, sigiloso e acolhedor para falar sobre seus sentimentos, pensamentos e experiências. O psicólogo atua como facilitador desse processo, auxiliando na compreensão de questões internas e na construção de novas possibilidades de lidar com os desafios da vida. Ao longo das sessões, a pessoa desenvolve maior consciência de si mesma, fortalece sua autonomia e encontra caminhos para uma vida mais equilibrada e significativa.</div>
         </div>
       </div>
 
@@ -570,8 +748,104 @@
           <div class="accordion-body">Cada sessão tem duração aproximada de 50 minutos.</div>
         </div>
       </div>
+      <div class="accordion-item">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree">
+      <strong>O que é a Gestalt-Terapia?</strong>
+    </button>
+  </h2>
+  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+    <div class="accordion-body">A Gestalt-Terapia é uma abordagem da psicologia que valoriza o aqui e agora, ajudando a pessoa a tomar consciência de seus sentimentos, pensamentos e comportamentos para promover mudanças significativas em sua vida.</div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour">
+      <strong>Psicoterapia é só para quem está em sofrimento?</strong>
+    </button>
+  </h2>
+  <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+    <div class="accordion-body">Não. A psicoterapia também é indicada para quem deseja se conhecer melhor, desenvolver habilidades emocionais, melhorar relacionamentos e buscar mais qualidade de vida.</div>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive">
+      <strong>Qual a frequência recomendada das sessões?</strong>
+    </button>
+  </h2>
+  <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+    <div class="accordion-body">A frequência mais comum é de uma vez por semana, mas pode variar conforme a necessidade e o momento de cada pessoa.</div>
+  </div>
+</div>
     </div>
   </section>
+
+<!-- ===== BLOCO 7 ===== -->
+<section class="bloco7" id="depoimentos">
+  <h3 class="text-center mb-4">Depoimentos</h3>
+
+  <div id="carouselDepoimentos" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <!-- Primeiro slide -->
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center">
+          <div class="card h-100 shadow-sm mx-2" style="width: 18rem;">
+            <div class="card-body">
+              <p class="card-text" ><br>"A psicoterapia me ajudou a compreender melhor minhas emoções e a lidar com situações que antes pareciam impossíveis. Foi um processo transformador."<br></p>
+            </div>
+            <div class="card-footer text-muted text-end">
+              <strong>Sthefany Martins, 32 anos</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Segundo slide -->
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <div class="card h-100 shadow-sm mx-2" style="width: 28rem">
+            <div class="card-body">
+            <p class="card-text" style="width: 20rem; text-align: center;"><br>"Encontrei um espaço de acolhimento e respeito, onde pude me expressar sem julgamentos. As sessões me ajudaram a conquistar mais equilíbrio na vida pessoal e profissional."</p>
+            </div>
+            <div class="card-footer text-muted text-end" style="width: 28rem">
+              <strong>Ana Maria Pereira de Matos, 45 anos</strong>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <!-- Terceiro slide-->
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <div class="card h-100 shadow-sm mx-2" style="width: 18rem;">
+            <div class="card-body">
+              <p class="card-text"> <br>"O processo terapêutico tem sido um grande apoio para meu autoconhecimento. Hoje me sinto mais confiante e capaz de lidar com minhas escolhas."</p>
+            </div>
+            <div class="card-footer text-muted text-end">
+              <strong>Daniel Ribeiro de Souza, 27 anos</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+</section>
+
+
 
   <footer>
     <p>© 2025 Giovana Morais - Psicóloga Clínica CRP: 08/45995</p>
@@ -596,8 +870,6 @@
         element.classList.add('ativa');
       }
     }
-
-
 
   </script>
 
