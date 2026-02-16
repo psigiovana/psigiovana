@@ -6,41 +6,119 @@
   <title>Psicóloga Giovana Morais</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="icon" type="image/x-png" href="Design sem nome (8).png">
 
   <style>
     /* === NOVA PALETA DE CORES (Terapêutica) === */
     :root {
-      /* Substituindo as variáveis antigas pela nova paleta */
-      --bg-light: #F9F7F2;      /* Areia Claro (Antigo Rosa Claro) */
-      --green-soft: #E8EBE9;    /* Verde Suave (Antigo Rosa Médio) */
-      --green-primary: #4A5D54; /* Verde Sálvia Escuro (Antigo Rosa Escuro/Vinho) */
-      --terracotta: #BFA598;    /* Terracota (Para destaques e botões) */
+      --bg-light: #F9F7F2;      /* Areia Claro */
+      --green-soft: #E8EBE9;    /* Verde Suave */
+      --green-primary: #4A5D54; /* Verde Sálvia Escuro */
+      --terracotta: #BFA598;    /* Terracota */
       --text-dark: #2C3330;     /* Texto Escuro */
       --white: #ffffff;
       
-      /* Mantendo nomes das variáveis antigas para não quebrar a estrutura, 
-         mas atribuindo as novas cores a elas */
+      /* Compatibilidade com variáveis antigas */
       --rosa-claro: var(--bg-light);
       --rosa-medio: var(--green-soft);
       --rosa-escuro: var(--green-primary);
-      --vinho: var(--green-primary); /* Texto forte agora é verde escuro */
+      --vinho: var(--green-primary);
     }
 
     body {
       background-color: var(--rosa-claro);
-      color: var(--text-dark); /* Ajuste de cor de texto padrão */
+      color: var(--text-dark);
       overflow-x: hidden;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      /* Espaço para o banner não cobrir o menu inicialmente */
+      padding-top: 50px; 
     }
 
+    /* === ESTILOS DO BANNER ROTATIVO (NOVO) === */
+    .top-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-color: var(--green-primary);
+      color: var(--white);
+      z-index: 99999; /* Fica acima de tudo, inclusive navbar */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      padding: 0 15px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .banner-content {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 0.95rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .rotating-text {
+      font-weight: 500;
+      display: inline-block;
+      min-width: 250px;
+      text-align: right;
+    }
+
+    .banner-btn {
+      background-color: var(--terracotta);
+      color: var(--white);
+      padding: 5px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: bold;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+
+    .banner-btn:hover {
+      background-color: #a88b7d;
+      color: var(--white);
+      transform: scale(1.05);
+    }
+
+    .close-banner {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: absolute;
+      right: 15px;
+      opacity: 0.7;
+    }
+    .close-banner:hover { opacity: 1; }
+
+    /* Ajuste Mobile para o Banner */
+    @media (max-width: 768px) {
+      .rotating-text {
+        font-size: 0.8rem;
+        min-width: auto;
+        text-align: center;
+      }
+      .banner-content {
+        justify-content: space-between;
+      }
+      body { padding-top: 60px; } /* Mais espaço no mobile se quebrar linha */
+    }
+
+    /* === RESTANTE DO CSS MANTIDO === */
     .foto-da-linda:hover{
       transform: scale(1.02);
       filter: drop-shadow(0 4px 8px rgba(74, 93, 84, 0.3));
       transition: 0.3s;
     }
 
-    /* === NAVBAR === */
     nav.navbar {
       background-color: var(--rosa-medio);
       padding: 10px 8%;
@@ -59,10 +137,9 @@
     }
 
     .navbar-brand img {
-      width: 250px;
+      width: 180px; /* Ajustei levemente para proporção */
     }
 
-    /* === BLOCOS === */
     section {
       min-height: 100vh;
       display: flex;
@@ -75,7 +152,7 @@
 
     .bloco1 {
       background-color: var(--rosa-claro);
-      display: flex;          /* flex para alinhar imagem e texto */
+      display: flex;         
       flex-direction: row;
       align-items: center;
       justify-content: center;
@@ -115,7 +192,7 @@
 
     .bloco2 {
       background-color: var(--rosa-claro);
-      display: flex;          /* flex para alinhar imagem e texto */
+      display: flex;         
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -133,7 +210,6 @@
       max-width: 500px;
       text-align: left;
       margin-bottom: 15px;
-      
     }
 
     .bloco2-texto h3 {
@@ -149,30 +225,27 @@
       font-size: 1.1em;
       line-height: 1.6;
       text-align: left;
-
     }
 
     .bloco3 {
-      background-color: var(--rosa-escuro); /* Agora é Verde Sálvia */
-      display: flex;          /* flex para alinhar imagem e texto */
+      background-color: var(--rosa-escuro); 
+      display: flex;         
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 40px;
       flex-wrap: wrap;
-
     }
 
     .bloco3-texto p{
       max-width: 500px;
       text-align: left;
       margin-bottom: 15px;
-      
     }
 
     .bloco3-texto h3 {
       font-style: italic;
-      color: var(--terracotta); /* Destaque no fundo escuro */
+      color: var(--terracotta); 
       font-weight: bold;
       margin-bottom: 20px;
       text-align: left;
@@ -183,25 +256,22 @@
       font-size: 1.1em;
       line-height: 1.6;
       text-align: left;
-
     }
 
     .bloco4 {
       background-color: var(--rosa-escuro);
-      display: flex;          /* flex para alinhar imagem e texto */
+      display: flex;         
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 40px;
       flex-wrap: wrap;
-      
     }
 
     .bloco4-texto p{
       max-width: 700px;
       text-align: justify;
       margin-bottom: 15px;
-      
     }
 
     .bloco4-texto h3 {
@@ -210,12 +280,10 @@
       font-weight: bold;
       margin-bottom: 20px;
       text-align: left;
-      
     }
 
-    /* Ajuste de cores específicas do Bloco 4 (Projeto Social) */
     .bloco4 p {
-      color: var(--text-dark); /* Substituindo o roxo antigo */
+      color: var(--text-dark);
       font-size: 1.1em;
       line-height: 1.6;
       text-align: justify;
@@ -224,20 +292,17 @@
 
     .bloco5 {
       background-color: var(--rosa-escuro);
-      display: flex;          /* flex para alinhar imagem e texto */
+      display: flex;         
       flex-direction: column;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      
     }
 
     .bloco5-texto p{
       max-width: 700px;
       text-align: justify;
       margin-bottom: 15px;
-
-      
     }
 
     .bloco5-texto h3 {
@@ -246,17 +311,14 @@
       font-weight: bold;
       margin-bottom: 20px;
       text-align: left;
-      
     }
 
-    /* Ajuste de cores específicas do Bloco 5 (Sobre Mim) */
     .bloco5 p {
-      color: var(--text-dark); /* Substituindo o rosa choque antigo */
+      color: var(--text-dark); 
       font-size: 1.1em;
       line-height: 1.6;
       text-align: justify;
       width: 700px;
-
     }
 
     .bloco5 a{
@@ -271,7 +333,7 @@
     }    
 
     .bloco2 { background-color: var(--rosa-medio); }
-    .bloco3 { background-color: var(--green-primary); color: #fff; } /* Fundo escuro */
+    .bloco3 { background-color: var(--green-primary); color: #fff; } 
     .bloco4 { background-color: var(--rosa-claro); }
     .bloco5 { background-color: var(--rosa-medio); }
     .bloco6 { background-color: var(--rosa-claro); }
@@ -292,9 +354,7 @@
       font-size: 0.9em;
     }
 
-    .footer p {
-    display: block;
-    }
+    .footer p { display: block; }
     
     footer a {
       color: var(--terracotta);
@@ -302,18 +362,14 @@
       text-decoration: none;
     }
 
-    footer .crp-link{
-      color: #ffffff;
-    }
+    footer .crp-link{ color: #ffffff; }
 
     footer a:hover {
       text-decoration: underline;
       color: #fff;
     }
 
-    .footer.social-icons {
-      margin-top: 10px;
-    }
+    .footer.social-icons { margin-top: 10px; }
 
     .footer.social-icons a {
       color: var(--terracotta);
@@ -410,8 +466,8 @@
       filter: drop-shadow(0 -1px 1px rgba(0,0,0,0.1));
     }
 
-      .btn-participar {
-      background-color: var(--terracotta); /* Antigo Roxo */
+    .btn-participar {
+      background-color: var(--terracotta);
       color: #fff;
       border: none;
       border-radius: 25px;
@@ -421,149 +477,57 @@
       transition: 0.3s;
     }
 
-      .btn-participar:hover {
+    .btn-participar:hover {
       background-color: #a88b7d;
       transform: scale(1.05);
       color: #fff;
     }
 
-/* === RESPONSIVIDADE === */
-@media (max-width: 768px) {
-  /* Geral */
-  section {
-    padding: 50px 5%;
-    text-align: center;
-  }
+    /* === RESPONSIVIDADE === */
+    @media (max-width: 768px) {
+      section { padding: 50px 5%; text-align: center; }
+      h3 { font-size: 1.3em; line-height: 1.4; }
+      p { font-size: 1em; line-height: 1.6; margin-bottom: 15px; }
+      .bloco3 p { justify-content: center; }
+      .bloco1, .bloco2, .bloco3, .bloco4 {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 40px 5%;
+      }
+      .bloco1 h3, .bloco2 h3, .bloco3 h3, .bloco4 h3, .bloco1 p, .bloco2 p, .bloco3 p, .bloco4 p {
+        text-align: center;
+        width: 100%;
+      }
+      .bloco1 img, .bloco2 img, .bloco3 img, .bloco4 img {
+        width: 85%;
+        max-width: 400px;
+        height: auto;
+        margin: 15px auto 0;
+        border-radius: 15px;
+        display: block;
+      }
+      .container { flex-direction: column; align-items: center; gap: 15px; margin-top: 20px; }
+      .modalidade { width: 90%; font-size: 16px; padding: 15px; text-align: center; }
+      .texto-box { position: static; transform: none; width: 90%; margin: 10px auto; display: none; }
+      .texto-box.mostrar { display: block; opacity: 1; }
+      .btn-participar { width: 90%; font-size: 0.95em; padding: 12px; border-radius: 20px; }
+      .chat-button { width: 55px; height: 55px; bottom: 15px; right: 15px; }
+      .chat-container { width: 95%; right: 2.5%; height: 70vh; bottom: 80px; }
+    }
 
-  h3 {
-    font-size: 1.3em;
-    line-height: 1.4;
-  }
+    @media (max-width: 480px) {
+      h3 { font-size: 1.15em; }
+      p { font-size: 0.95em; }
+      .bloco1 img, .bloco2 img, .bloco3 img, .bloco4 img { width: 90%; }
+      .btn-participar { font-size: 0.9em; padding: 10px; }
+      .chat-button { width: 50px; height: 50px; }
+    }
 
-  p {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-
-  .bloco3 p {
-    justify-content: center;
-
-  }
-
-  .bloco1,
-  .bloco2,
-  .bloco3,
-  .bloco4 {
-    flex-direction: column;
-    text-align: center;
-    gap: 25px;
-    padding: 40px 5%;
-  }
-
-  .bloco1 h3,
-  .bloco2 h3,
-  .bloco3 h3,
-  .bloco4 h3,
-  .bloco1 p,
-  .bloco2 p,
-  .bloco3 p,
-  .bloco4 p {
-    text-align: center;
-    width: 100%;
-  }
-
-  .bloco1 img,
-  .bloco2 img,
-  .bloco3 img,
-  .bloco4 img {
-    width: 85%;
-    max-width: 400px;
-    height: auto;
-    margin: 15px auto 0;
-    border-radius: 15px;
-    display: block;
-  }
-
-  /* Modalidades */
-  .container {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-  }
-
-  .modalidade {
-    width: 90%;
-    font-size: 16px;
-    padding: 15px;
-    text-align: center;
-  }
-
-  .texto-box {
-    position: static;
-    transform: none;
-    width: 90%;
-    margin: 10px auto;
-    display: none;
-  }
-
-  .texto-box.mostrar {
-    display: block;
-    opacity: 1;
-  }
-
-  /* Botão */
-  .btn-participar {
-    width: 90%;
-    font-size: 0.95em;
-    padding: 12px;
-    border-radius: 20px;
-  }
-
-  /* Chatbot */
-  .chat-button {
-    width: 55px;
-    height: 55px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .chat-container {
-    width: 95%;
-    right: 2.5%;
-    height: 70vh;
-    bottom: 80px;
-  }
-}
-
-/* === TELAS MENORES (CELULARES PEQUENOS) === */
-@media (max-width: 480px) {
-  h3 { font-size: 1.15em; }
-  p { font-size: 0.95em; }
-  .bloco1 img, .bloco2 img, .bloco3 img, .bloco4 img { width: 90%; }
-  .btn-participar { font-size: 0.9em; padding: 10px; }
-  .chat-button { width: 50px; height: 50px; }
-}
-
-.accordion-item {
-text-align: left;
-}
-
-/* Estilização do Accordion para a nova paleta */
-.accordion-button {
-    color: var(--green-primary);
-    background-color: #fff;
-    font-weight: bold;
-}
-.accordion-button:not(.collapsed) {
-    color: #fff;
-    background-color: var(--terracotta);
-    box-shadow: none;
-}
-.accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(191, 165, 152, 0.25);
-}
+    .accordion-item { text-align: left; }
+    .accordion-button { color: var(--green-primary); background-color: #fff; font-weight: bold; }
+    .accordion-button:not(.collapsed) { color: #fff; background-color: var(--terracotta); box-shadow: none; }
+    .accordion-button:focus { box-shadow: 0 0 0 0.25rem rgba(191, 165, 152, 0.25); }
 
     .bloco7 {
       background-color: var(--rosa-medio);
@@ -571,175 +535,89 @@ text-align: left;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 20px;            /* menos espaço entre elementos */
+      gap: 20px;
       flex-wrap: wrap;
-      padding: 40px 20px;   /* controla a altura pelo espaçamento */
-      min-height: auto;     /* deixa a altura se ajustar ao conteúdo */
+      padding: 40px 20px;
+      min-height: auto;
+    }
+    .bloco7 img { width: 500px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .bloco7-texto p { max-width: 500px; text-align: left; margin-bottom: 15px; }
+    .bloco7-texto h3 { font-style: italic; color: var(--green-primary); font-weight: bold; margin-bottom: 20px; text-align: left; }
+    .bloco7 p { color: #000; font-size: 1.1em; line-height: 1.6; text-align: left; }
+
+    .col-md-4 { margin-top: 100px; width: 100px; justify-items: center; }
+    .card-footer.text-muted.text-end { color: var(--green-primary) !important; text-align: center !important; background-color: var(--rosa-claro); }
+    .card-text { color: var(--text-dark) !important; width: 200px; margin: 32px; margin-top: 1px; font-size: 15px !important; text-align: center; }
+    .d-flex.justify-content-center { width: auto !important; height: 250px !important; max-width: 100% !important; justify-content: center !important; }
+    .carousel-item { width: 1000px !important; height: auto !important; }
+    .depoimento-card { width: 1500px !important; min-height: 18rem !important; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .depoimento-body { font-size: 1.1rem; width: 500rem !important; }
+    .depoimento-footer { font-size: 1rem; color: var(--green-primary); width: 1000px !important; height: auto !important; }
+    .card-body { width: 1000px !important; max-width: 100% !important; }
+    .fab.fa-instagram, .fab.fa-facebook, .fab.fa-linkedin { font-size: 22px; margin: 5px; }
+
+    @media (max-width: 992px) { .depoimento-card { width: 20rem; min-height: 16rem; } }
+    @media (max-width: 576px) { 
+      .depoimento-card { width: 16rem; min-height: 14rem; }
+      .depoimento-body { font-size: 1rem; }
+      .depoimento-footer { font-size: 0.9rem; }
     }
 
-    .bloco7 img {
-      width: 500px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    .crp-link { position: relative; color: #0077cc; text-decoration: none; font-weight: bold; }
+    .crp-link::after {
+      content: "Clique aqui para consultar no CRP-PR!";
+      position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%);
+      background-color: var(--green-primary); color: #fff; padding: 6px 10px; border-radius: 6px;
+      white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; font-size: 0.85em; z-index: 10;
     }
-
-    .bloco7-texto p{
-      max-width: 500px;
-      text-align: left;
-      margin-bottom: 15px;
-      
+    .crp-link::before {
+      content: ""; position: absolute; bottom: 115%; left: 50%; transform: translateX(-50%);
+      border-width: 5px; border-style: solid; border-color: var(--green-primary) transparent transparent transparent;
+      opacity: 10; transition: opacity 0.3s ease; color: #f3c8d8;
     }
-
-    .bloco7-texto h3 {
-      font-style: italic;
-      color: var(--green-primary);
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .bloco7 p {
-      color: #000;
-      font-size: 1.1em;
-      line-height: 1.6;
-      text-align: left;
-    }
-
-    .col-md-4 {    /* Class Cards*/  
-      margin-top: 100px;
-      width: 100px;
-      justify-items: center;
-    }
-
-    .card-footer.text-muted.text-end {
-      color: var(--green-primary) !important;
-      text-align: center !important;
-      background-color: var(--rosa-claro);
-    }
-
-    .card-text{
-      color: var(--text-dark) !important;
-      width: 200px;
-      margin: 32px;
-      margin-top: 1px;
-      font-size: 15px !important;
-      text-align: center;
-
-    }
-
-    .d-flex.justify-content-center{
-      width: auto !important;
-      height: 250px !important;
-      max-width: 100% !important;
-      justify-content: center !important;
+    .crp-link:hover::after, .crp-link:hover::before { opacity: 1; }
     
+    /* CHAT STYLES */
+    .chat-button {
+      position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%;
+      background:#25D366; display: flex; justify-content: center; align-items: center; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 10000; transition: transform 0.3s;
     }
-
-.carousel-item{
-      width: 1000px !important;
-      height: auto !important;
+    .chat-button:hover { transform: scale(1.1); }
+    .chat-button svg { width: 34px; height: 34px; fill: white; }
+    .chat-container {
+      position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px;
+      background: var(--bg-light); border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: none; flex-direction: column; overflow: hidden; z-index: 10000;
     }
-
-    /* Cards do carrossel de depoimentos */
-.depoimento-card {
-  width: 1500px !important;
-  min-height: 18rem !important;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.depoimento-body {
-  font-size: 1.1rem;
-  width: 500rem !important;
-}
-
-.depoimento-footer {
-  font-size: 1rem;
-  color: var(--green-primary);
-  width: 1000px !important;
-  height: auto !important;
-}
-
-.card-body{
-  width: 1000px !important;
-  max-width: 100% !important;
-}
-
-.fab.fa-instagram, .fab.fa-facebook, .fab.fa-linkedin{
-font-size: 22px;
-margin: 5px;
-}
-
-
-/* Responsividade */
-@media (max-width: 992px) { /* tablets */
-  .depoimento-card {
-    width: 20rem;
-    min-height: 16rem;
-  }
-}
-
-@media (max-width: 576px) { /* celulares */
-  .depoimento-card {
-    width: 16rem;
-    min-height: 14rem;
-  }
-  .depoimento-body {
-    font-size: 1rem;
-  }
-  .depoimento-footer {
-    font-size: 0.9rem;
-  }
-}
-
-.crp-link {
-  position: relative;
-  color: #0077cc;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.crp-link::after {
-  content: "Clique aqui para consultar no CRP-PR!";
-  position: absolute;
-  bottom: 125%; /* acima do link */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--green-primary);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  font-size: 0.85em;
-  z-index: 10;
-}
-
-.crp-link::before {
-  content: "";
-  position: absolute;
-  bottom: 115%; /* ajusta o triângulo */
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 5px;
-  border-style: solid;
-  border-color: var(--green-primary) transparent transparent transparent;
-  opacity: 10;
-  transition: opacity 0.3s ease;
-  color: #f3c8d8;
-}
-
-.crp-link:hover::after,
-.crp-link:hover::before {
-  opacity: 1;
-}
-
-
+    .chat-header { background: var(--green-primary); color: white; padding: 15px; text-align: center; font-weight: bold; }
+    .chat-body { background-color: var(--green-soft); flex: 1; padding: 10px; overflow-y: auto; display: flex; flex-direction: column; }
+    .chat-message { margin: 6px 0; padding: 10px 14px; border-radius: 8px; max-width: 75%; font-size: 14px; line-height: 1.4; color: var(--text-dark); }
+    .bot { background: #ffffff; align-self: flex-start; }
+    .user { background: #ffffff; align-self: flex-end; }
+    .chat-footer { display: flex; border-top: 1px solid #ccc; background: #f0f0f0; }
+    .chat-footer input { flex: 1; border: none; padding: 10px; font-size: 14px; outline: none; }
+    .chat-footer button { background: var(--terracotta); color: white; border: none; padding: 10px 15px; cursor: pointer; font-weight: bold; }
+    .quick-replies { display: flex; flex-wrap: wrap; margin-top: 5px; }
+    .quick-reply {
+      background: #ffffff; border-radius: 15px; color: var(--green-primary);
+      padding: 6px 12px; margin: 3px; cursor: pointer; font-size: 13px; transition: background 0.2s;
+    }
+    .quick-reply:hover { background: #ddd; }
   </style>
 </head>
 
 <body>
+  
+  <div id="top-banner" class="top-banner">
+    <div class="banner-content">
+      <i class="fas fa-book-open" style="color: var(--terracotta);"></i>
+      <span class="rotating-text" id="banner-text">Novo Ebook: Psicologia x Fé</span>
+      <a href="https://kiwify.app/NokvJ4d" class="banner-btn">Ver Agora</a>
+      <button class="close-banner" onclick="closeBanner()">&times;</button>
+    </div>
+  </div>
+
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#inicio">
@@ -771,7 +649,6 @@ margin: 5px;
       <p>E eu quero que saiba: você não está só.</p> <br><br><br>
     </div>
   </section>
-
   <section class="bloco2" id="como-funciona">
     <div class="bloco2-texto"></div>
     <p><h3>Como Funciona?</h3></p> 
@@ -809,8 +686,8 @@ margin: 5px;
     <p>Se você busca uma terapia que valorize sua experiência única e promova o autoconhecimento, a Gestalt-Terapia pode ser uma excelente escolha.</p></div>
 
   </section>
- <section class="bloco4" id="projeto-social">
-    <!--<a href="projeto-social.html", target="_blank"><img src="logo-projeto.png.png" alt="Logo Projeto Cuidar de quem Ensina" style="width: 200px; margin-bottom: 20px;"></a> -->
+
+  <section class="bloco4" id="projeto-social">
     <h3 style="color: var(--green-primary);">Projeto Social - Cuidar de quem Ensina</h3>
     <div class="bloco4-texto"></div>
     <strong><p>O projeto "Cuidar de quem Ensina" é uma iniciativa dedicada a oferecer suporte emocional e psicológico aos educadores, reconhecendo os desafios únicos que enfrentam no ambiente escolar.</p>
@@ -822,7 +699,8 @@ margin: 5px;
     <button class="btn-participar">Quero Conhecer Melhor</button>
     </a>
   </section>
- <section class="bloco5" id="sobre-mim">
+
+  <section class="bloco5" id="sobre-mim">
     <h3>Sobre Mim</h3>
     <div> <img class="foto-da-linda" src="page photo init sobre mim.png" alt="Psicóloga Giovana Morais"></div>
     <div class="bloco5-texto"></div> <br><br>
@@ -836,7 +714,8 @@ margin: 5px;
     <p>Caminhar junto às pessoas em seus processos é, para mim, um privilégio e uma missão que levo com muita responsabilidade e amor.</p></strong>
     
   </section>
- <section class="bloco6" id="duvidas-frequentes">
+
+  <section class="bloco6" id="duvidas-frequentes">
     <h3>Dúvidas Frequentes</h3>
 
     <div class="accordion accordion-flush w-75 mx-auto" id="accordionFlushExample">
@@ -953,8 +832,6 @@ margin: 5px;
   </div>
 </section>
 
-
-
   <footer>
     <p>© 2025 Giovana Morais - Psicóloga Clínica <a href="https://cadastro.cfp.org.br/visualizar.html?profissional=Myl1JupBquk88JhNGRxl0vdzDjT%2F9OffKVqNW7tXE8g%3D" class="crp-link">CRP-PR: 08/45995</a></p>
     <p> Maringá-PR - Contato <a href="https://wa.me/5544997112467" target="_blank">(44)99711-2767</a></p>
@@ -966,7 +843,6 @@ margin: 5px;
     <p>Desenvolvido por <a href="https://azdevcoder.com.br" target="_blank" style="color: var(--terracotta);">AzDev Coder</a></p>
   </footer>
   
-
   <script>
     function toggleTexto(element) {
       const box = element.querySelector('.texto-box');
@@ -982,7 +858,6 @@ margin: 5px;
         element.classList.add('ativa');
       }
     }
-
   </script>
 
 <div class="chat-button" id="chat-button" onclick="toggleChat()">
@@ -1004,57 +879,39 @@ margin: 5px;
   </div>
 </div>
 
-<style>
-.chat-button {
-  position: fixed; bottom: 20px; right: 20px;
-  width: 60px; height: 60px; border-radius: 50%;
-  background:#25D366; display: flex;
-  justify-content: center; align-items: center;
-  cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 10000; transition: transform 0.3s;
-}
-.chat-button:hover { transform: scale(1.1); }
-.chat-button svg { width: 34px; height: 34px; fill: white; }
-.chat-container {
-  position: fixed; bottom: 90px; right: 20px;
-  width: 350px; height: 500px; background: var(--bg-light); /* Cor de fundo ajustada */
-  border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  display: none; flex-direction: column; overflow: hidden; z-index: 10000;
-}
-.chat-header {
-  background: var(--green-primary); /* Ajuste: Verde Escuro */
-  color: white; padding: 15px;
-  text-align: center; font-weight: bold;
-}
-.chat-body {
-  background-color: var(--green-soft); /* Ajuste: Verde Suave */
-  flex: 1; padding: 10px; overflow-y: auto;
-  display: flex; flex-direction: column;
-}
-.chat-message {
-  margin: 6px 0; padding: 10px 14px;
-  border-radius: 8px; max-width: 75%; font-size: 14px; line-height: 1.4;
-  color: var(--text-dark); /* Ajuste: Texto Escuro */
-}
-.bot { background: #ffffff; align-self: flex-start; }
-.user { background: #ffffff; align-self: flex-end; }
-.chat-footer { display: flex; border-top: 1px solid #ccc; background: #f0f0f0; }
-.chat-footer input { flex: 1; border: none; padding: 10px; font-size: 14px; outline: none; }
-.chat-footer button { 
-    background: var(--terracotta); /* Ajuste: Botão Terracota */
-    color: white; border: none; padding: 10px 15px; cursor: pointer; font-weight: bold; 
-}
-.quick-replies { display: flex; flex-wrap: wrap; margin-top: 5px; }
-.quick-reply {
-  background: #ffffff; border-radius: 15px;
-  color: var(--green-primary); /* Ajuste: Texto Verde */
-  padding: 6px 12px; margin: 3px; cursor: pointer; font-size: 13px;
-  transition: background 0.2s;
-}
-.quick-reply:hover { background: #ddd; }
-</style>
-
 <script>
+// --- SCRIPT DO BANNER ROTATIVO (NOVO) ---
+const messages = [
+  "Novo Ebook: Psicologia x Fé",
+  "Não precisa ser um campo de batalha!",
+  "Descubra como lidar com a culpa religiosa!",
+  "Oferta de Lançamento - Aproveite!",
+  "De R$47,90 por Apenas R$14,90"
+];
+let currentIndex = 0;
+const bannerText = document.getElementById("banner-text");
+
+function rotateText() {
+  bannerText.classList.add("animate__animated", "animate__fadeOut");
+  
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % messages.length;
+    bannerText.innerText = messages[currentIndex];
+    bannerText.classList.remove("animate__fadeOut");
+    bannerText.classList.add("animate__fadeIn");
+  }, 500); // Tempo para o fadeOut completar
+}
+
+// Troca o texto a cada 3.5 segundos
+setInterval(rotateText, 5000);
+
+function closeBanner() {
+  const banner = document.getElementById("top-banner");
+  banner.style.transform = "translateY(-100%)"; // Desliza para cima
+  document.body.style.paddingTop = "0"; // Remove o espaço extra
+}
+
+// --- SCRIPT DO CHATBOT ---
 let step = 0;
 let userData = { nome: "" };
 
