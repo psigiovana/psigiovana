@@ -26,15 +26,20 @@
       --vinho: var(--green-primary);
     }
 
+    /* Impede rolagem horizontal no site inteiro */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
     body {
       background-color: var(--rosa-claro);
       color: var(--text-dark);
-      overflow-x: hidden;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       padding-top: 50px; 
     }
 
-    /* === ESTILOS DO BANNER ROTATIVO (NOVO) === */
+    /* === ESTILOS DO BANNER ROTATIVO === */
     .top-banner {
       position: fixed;
       top: 0;
@@ -98,19 +103,6 @@
     }
     .close-banner:hover { opacity: 1; }
 
-    /* Ajuste Mobile para o Banner */
-    @media (max-width: 768px) {
-      .rotating-text {
-        font-size: 0.8rem;
-        min-width: auto;
-        text-align: center;
-      }
-      .banner-content {
-        justify-content: space-between;
-      }
-      body { padding-top: 100px; } 
-    }
-
     /* === RESTANTE DO CSS === */
     .foto-da-linda:hover{
       transform: scale(1.02);
@@ -155,6 +147,7 @@
       justify-content: center;
       gap: 40px;
       flex-wrap: wrap;
+      width: 100%;
     }
 
     .bloco1 { background-color: var(--rosa-claro); flex-direction: row; }
@@ -165,7 +158,6 @@
     .bloco6 { background-color: var(--rosa-claro); }
     .bloco7 { background-color: var(--rosa-medio); flex-direction: column; padding: 40px 20px; min-height: auto; }
 
-    /* Ajuste responsivo de imagens */
     .bloco1 img, .bloco2 img, .bloco5 img, .bloco7 img {
       width: 100%;
       max-width: 500px;
@@ -174,7 +166,6 @@
       height: auto;
     }
 
-    /* Ajuste responsivo de textos */
     .bloco1-texto, .bloco2-texto p, .bloco3-texto p, .bloco7-texto p {
       width: 100%;
       max-width: 500px;
@@ -273,7 +264,6 @@
       border-color: var(--green-primary);
     }
 
-    /* Restrito apenas à seção #como-funciona para não quebrar o Bootstrap */
     #como-funciona .container {
       display: flex;
       justify-content: center;
@@ -341,7 +331,7 @@
     .accordion-button:not(.collapsed) { color: #fff; background-color: var(--terracotta); box-shadow: none; }
     .accordion-button:focus { box-shadow: 0 0 0 0.25rem rgba(191, 165, 152, 0.25); }
 
-    /* === CARROSSEL (Correções Responsivas) === */
+    /* === CARROSSEL === */
     #carouselDepoimentos .card {
       width: 100% !important;
       max-width: 600px !important;
@@ -362,6 +352,7 @@
       margin: 20px auto; 
       font-size: 16px !important; 
       text-align: center !important; 
+      padding: 0 15px;
     }
     
     #carouselDepoimentos .d-flex.justify-content-center { 
@@ -411,33 +402,63 @@
     }
     .quick-reply:hover { background: #ddd; }
 
-    /* === RESPONSIVIDADE FINAL === */
+
+    /* =======================================================
+       RESPONSIVIDADE MELHORADA (FOCO MOBILE)
+       ======================================================= */
     @media (max-width: 768px) {
-      section { padding: 50px 5%; text-align: center; }
+      
+      /* Remove espaços mortos no mobile, tira a altura fixa de 100vh */
+      section { 
+        min-height: auto !important; 
+        padding: 40px 15px !important; 
+        text-align: center; 
+      }
+      
       h3 { font-size: 1.3em; line-height: 1.4; }
-      p { font-size: 1em; line-height: 1.6; margin-bottom: 15px; }
+      p { font-size: 1em; line-height: 1.6; margin-bottom: 15px; text-align: center !important; }
       
       .bloco1, .bloco2, .bloco3, .bloco4, .bloco5, .bloco7 {
         flex-direction: column;
         text-align: center;
-        gap: 25px;
-        padding: 40px 5%;
+        gap: 20px;
+        padding: 20px 0;
       }
       
-      .bloco1 h3, .bloco2 h3, .bloco3 h3, .bloco4 h3, .bloco5 h3, .bloco7 h3,
-      .bloco1 p, .bloco2 p, .bloco3 p, .bloco4 p, .bloco5 p, .bloco7 p {
-        text-align: center;
+      .bloco1 h3, .bloco2 h3, .bloco3 h3, .bloco4 h3, .bloco5 h3, .bloco7 h3 {
+        text-align: center !important;
         width: 100%;
       }
       
+      /* Ajuste Menu Superior */
+      .rotating-text { font-size: 0.8rem; min-width: auto; text-align: center; }
+      .banner-content { justify-content: space-between; }
+      body { padding-top: 90px; } 
+
+      /* Ajuste Modalidades */
       #como-funciona .container { flex-direction: column; align-items: center; gap: 15px; }
-      .modalidade { width: 90%; font-size: 16px; padding: 15px; text-align: center; margin: 0; }
+      .modalidade { width: 100%; max-width: 320px; font-size: 16px; padding: 15px; text-align: center; margin: 0 auto; }
       .texto-box { position: static; transform: none; width: 100%; margin: 10px auto; display: none; }
       .texto-box.mostrar { display: block; opacity: 1; }
       
-      .btn-participar { width: 90%; font-size: 0.95em; padding: 12px; border-radius: 20px; }
+      .btn-participar { width: 100%; max-width: 320px; font-size: 0.95em; padding: 12px; border-radius: 20px; }
+      
+      /* Chatbot Desktop para Mobile */
       .chat-button { width: 55px; height: 55px; bottom: 15px; right: 15px; }
-      .chat-container { width: 95%; right: 2.5%; height: 70vh; bottom: 80px; }
+      .chat-container { width: 90%; right: 5%; height: 70vh; bottom: 80px; }
+
+      /* FORÇAR o Sanfona a ocupar toda a tela (Anula o w-75 do html) */
+      .accordion.w-75 { width: 100% !important; margin: 0 !important; }
+
+      /* FORÇAR Cards do Carrossel a não estourar a tela (Anula style="width: 28rem") */
+      #carouselDepoimentos .card[style] { 
+        width: 95% !important; 
+        max-width: 95% !important; 
+        min-height: auto !important; 
+      }
+      .carousel-control-prev, .carousel-control-next {
+        width: 10%; /* Fica mais fácil de clicar */
+      }
     }
 
     @media (max-width: 480px) {
@@ -451,7 +472,14 @@
 
 <body>
   
-
+  <div id="top-banner" class="top-banner">
+    <div class="banner-content">
+      <i class="fas fa-book-open" style="color: var(--terracotta);"></i>
+      <span class="rotating-text" id="banner-text">Novo Ebook: Psicologia x Fé</span>
+      <a href="https://kiwify.app/NokvJ4d" class="banner-btn">Ver Agora</a>
+      <button class="close-banner" onclick="closeBanner()">&times;</button>
+    </div>
+  </div>
 
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
