@@ -31,7 +31,6 @@
       color: var(--text-dark);
       overflow-x: hidden;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      /* Espaço para o banner não cobrir o menu inicialmente */
       padding-top: 50px; 
     }
 
@@ -44,7 +43,7 @@
       height: 100px;
       background-color: var(--green-primary);
       color: var(--white);
-      z-index: 99999; /* Fica acima de tudo, inclusive navbar */
+      z-index: 99999; 
       display: flex;
       align-items: center;
       justify-content: center;
@@ -109,10 +108,10 @@
       .banner-content {
         justify-content: space-between;
       }
-      body { padding-top: 60px; } /* Mais espaço no mobile se quebrar linha */
+      body { padding-top: 100px; } 
     }
 
-    /* === RESTANTE DO CSS MANTIDO === */
+    /* === RESTANTE DO CSS === */
     .foto-da-linda:hover{
       transform: scale(1.02);
       filter: drop-shadow(0 4px 8px rgba(74, 93, 84, 0.3));
@@ -137,7 +136,7 @@
     }
 
     .navbar-brand img {
-      width: 180px; /* Ajustei levemente para proporção */
+      width: 180px; 
     }
 
     section {
@@ -150,107 +149,61 @@
       text-align: center;
     }
 
-    .bloco1 {
-      background-color: var(--rosa-claro);
+    .bloco1, .bloco2, .bloco3, .bloco4, .bloco5, .bloco7 {
       display: flex;         
-      flex-direction: row;
       align-items: center;
       justify-content: center;
       gap: 40px;
       flex-wrap: wrap;
     }
-    .bloco1 img {
-      width: 500px;
+
+    .bloco1 { background-color: var(--rosa-claro); flex-direction: row; }
+    .bloco2 { background-color: var(--rosa-medio); flex-direction: column; }
+    .bloco3 { background-color: var(--green-primary); color: #fff; flex-direction: column; }
+    .bloco4 { background-color: var(--rosa-claro); flex-direction: column; }
+    .bloco5 { background-color: var(--rosa-medio); flex-direction: column; }
+    .bloco6 { background-color: var(--rosa-claro); }
+    .bloco7 { background-color: var(--rosa-medio); flex-direction: column; padding: 40px 20px; min-height: auto; }
+
+    /* Ajuste responsivo de imagens */
+    .bloco1 img, .bloco2 img, .bloco5 img, .bloco7 img {
+      width: 100%;
+      max-width: 500px;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      height: auto;
     }
 
-    .bloco1-texto {
+    /* Ajuste responsivo de textos */
+    .bloco1-texto, .bloco2-texto p, .bloco3-texto p, .bloco7-texto p {
+      width: 100%;
       max-width: 500px;
       text-align: left;
     }
+    
+    .bloco4-texto p, .bloco5-texto p, .bloco4 p, .bloco5 p {
+      width: 100%;
+      max-width: 700px;
+      text-align: justify;
+    }
 
-    .bloco1 h3 {
+    .bloco1 h3, .bloco2 h3, .bloco3 h3, .bloco4 h3, .bloco5 h3, .bloco7 h3, section h3 {
       font-style: italic;
       color: var(--green-primary);
       font-weight: bold;
       margin-bottom: 20px;
-      text-align: left;
     }
-
-    .bloco1 p {
+    
+    .bloco3 h3 { color: var(--terracotta); }
+    .bloco1 h3, .bloco2-texto h3, .bloco3-texto h3, .bloco4-texto h3, .bloco5-texto h3, .bloco7-texto h3 { text-align: left; }
+    
+    .bloco1 p, .bloco2 p, .bloco4 p, .bloco5 p, .bloco7 p {
       color: var(--text-dark);
       font-size: 1.1em;
       line-height: 1.6;
-      text-align: left;
     }
-
-    .bloco1 a{
-      text-decoration: underline;
-      color: var(--terracotta);
-    }
-
-    .bloco2 {
-      background-color: var(--rosa-claro);
-      display: flex;         
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .bloco2 img {
-      width: 500px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    .bloco2-texto p{
-      max-width: 500px;
-      text-align: left;
-      margin-bottom: 15px;
-    }
-
-    .bloco2-texto h3 {
-      font-style: italic;
-      color: var(--green-primary);
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .bloco2 p {
-      color: var(--text-dark);
-      font-size: 1.1em;
-      line-height: 1.6;
-      text-align: left;
-    }
-
-    .bloco3 {
-      background-color: var(--rosa-escuro); 
-      display: flex;         
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .bloco3-texto p{
-      max-width: 500px;
-      text-align: left;
-      margin-bottom: 15px;
-    }
-
-    .bloco3-texto h3 {
-      font-style: italic;
-      color: var(--terracotta); 
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
+    .bloco1 p, .bloco2 p, .bloco7 p { text-align: left; }
+    
     .bloco3 p {
       color: #ffffff;
       font-size: 1.1em;
@@ -258,92 +211,11 @@
       text-align: left;
     }
 
-    .bloco4 {
-      background-color: var(--rosa-escuro);
-      display: flex;         
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .bloco4-texto p{
-      max-width: 700px;
-      text-align: justify;
-      margin-bottom: 15px;
-    }
-
-    .bloco4-texto h3 {
-      font-style: italic;
-      color: var(--green-primary);
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .bloco4 p {
-      color: var(--text-dark);
-      font-size: 1.1em;
-      line-height: 1.6;
-      text-align: justify;
-      width: 700px;
-    }
-
-    .bloco5 {
-      background-color: var(--rosa-escuro);
-      display: flex;         
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .bloco5-texto p{
-      max-width: 700px;
-      text-align: justify;
-      margin-bottom: 15px;
-    }
-
-    .bloco5-texto h3 {
-      font-style: italic;
-      color: var(--green-primary);
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .bloco5 p {
-      color: var(--text-dark); 
-      font-size: 1.1em;
-      line-height: 1.6;
-      text-align: justify;
-      width: 700px;
-    }
-
-    .bloco5 a{
+    .bloco1 a, .bloco5 a {
       text-decoration: underline;
-      color: var(--green-primary);
+      color: var(--terracotta);
     }
-
-    .bloco5 img {
-      width: 500px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }    
-
-    .bloco2 { background-color: var(--rosa-medio); }
-    .bloco3 { background-color: var(--green-primary); color: #fff; } 
-    .bloco4 { background-color: var(--rosa-claro); }
-    .bloco5 { background-color: var(--rosa-medio); }
-    .bloco6 { background-color: var(--rosa-claro); }
-
-    section h3 {
-      font-style: italic;
-      font-weight: bold;
-      color: var(--green-primary);
-      margin-bottom: 25px;
-    }
+    .bloco5 a { color: var(--green-primary); }
 
     /* === FOOTER === */
     footer {
@@ -354,34 +226,19 @@
       font-size: 0.9em;
     }
 
-    .footer p { display: block; }
-    
-    footer a {
-      color: var(--terracotta);
-      font-weight: bold;
-      text-decoration: none;
-    }
-
+    footer p { display: block; }
+    footer a { color: var(--terracotta); font-weight: bold; text-decoration: none; }
     footer .crp-link{ color: #ffffff; }
+    footer a:hover { text-decoration: underline; color: #fff; }
 
-    footer a:hover {
-      text-decoration: underline;
-      color: #fff;
-    }
-
-    .footer.social-icons { margin-top: 10px; }
-
-    .footer.social-icons a {
+    .social-icons { margin-top: 10px; }
+    .social-icons a {
       color: var(--terracotta);
       font-size: 22px;
       margin: 0 10px;
       transition: all 0.3s ease;
     }
-
-    .footer.social-icons a:hover {
-      color: #fff;
-      transform: scale(1.2);
-    }
+    .social-icons a:hover { color: #fff; transform: scale(1.2); }
 
     /* === MODALIDADES === */
     .modalidade {
@@ -401,10 +258,7 @@
       justify-content: center;
       cursor: pointer;
       position: relative;
-      margin-left: 50px;
-      margin-right: 50px;
-      margin-top: -70px;
-      margin: 15px 0;
+      margin: 15px;
     }
 
     .modalidade:hover {
@@ -419,11 +273,12 @@
       border-color: var(--green-primary);
     }
 
-    .container {
+    /* Restrito apenas à seção #como-funciona para não quebrar o Bootstrap */
+    #como-funciona .container {
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-top: -70px;
+      margin-top: 20px;
       flex-wrap: wrap;
     }
 
@@ -449,10 +304,7 @@
       z-index: 10;
     }
 
-    .texto-box.mostrar {
-      display: block;
-      opacity: 1;
-    }
+    .texto-box.mostrar { display: block; opacity: 1; }
 
     .texto-box::before {
       content: "";
@@ -483,84 +335,38 @@
       color: #fff;
     }
 
-    /* === RESPONSIVIDADE === */
-    @media (max-width: 768px) {
-      section { padding: 50px 5%; text-align: center; }
-      h3 { font-size: 1.3em; line-height: 1.4; }
-      p { font-size: 1em; line-height: 1.6; margin-bottom: 15px; }
-      .bloco3 p { justify-content: center; }
-      .bloco1, .bloco2, .bloco3, .bloco4 {
-        flex-direction: column;
-        text-align: center;
-        gap: 25px;
-        padding: 40px 5%;
-      }
-      .bloco1 h3, .bloco2 h3, .bloco3 h3, .bloco4 h3, .bloco1 p, .bloco2 p, .bloco3 p, .bloco4 p {
-        text-align: center;
-        width: 100%;
-      }
-      .bloco1 img, .bloco2 img, .bloco3 img, .bloco4 img {
-        width: 85%;
-        max-width: 400px;
-        height: auto;
-        margin: 15px auto 0;
-        border-radius: 15px;
-        display: block;
-      }
-      .container { flex-direction: column; align-items: center; gap: 15px; margin-top: 20px; }
-      .modalidade { width: 90%; font-size: 16px; padding: 15px; text-align: center; }
-      .texto-box { position: static; transform: none; width: 90%; margin: 10px auto; display: none; }
-      .texto-box.mostrar { display: block; opacity: 1; }
-      .btn-participar { width: 90%; font-size: 0.95em; padding: 12px; border-radius: 20px; }
-      .chat-button { width: 55px; height: 55px; bottom: 15px; right: 15px; }
-      .chat-container { width: 95%; right: 2.5%; height: 70vh; bottom: 80px; }
-    }
-
-    @media (max-width: 480px) {
-      h3 { font-size: 1.15em; }
-      p { font-size: 0.95em; }
-      .bloco1 img, .bloco2 img, .bloco3 img, .bloco4 img { width: 90%; }
-      .btn-participar { font-size: 0.9em; padding: 10px; }
-      .chat-button { width: 50px; height: 50px; }
-    }
-
+    /* === ACORDEÃO === */
     .accordion-item { text-align: left; }
     .accordion-button { color: var(--green-primary); background-color: #fff; font-weight: bold; }
     .accordion-button:not(.collapsed) { color: #fff; background-color: var(--terracotta); box-shadow: none; }
     .accordion-button:focus { box-shadow: 0 0 0 0.25rem rgba(191, 165, 152, 0.25); }
 
-    .bloco7 {
-      background-color: var(--rosa-medio);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 40px 20px;
-      min-height: auto;
+    /* === CARROSSEL (Correções Responsivas) === */
+    #carouselDepoimentos .card {
+      width: 100% !important;
+      max-width: 600px !important;
+      min-height: 18rem;
+      margin: 0 auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .bloco7 img { width: 500px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-    .bloco7-texto p { max-width: 500px; text-align: left; margin-bottom: 15px; }
-    .bloco7-texto h3 { font-style: italic; color: var(--green-primary); font-weight: bold; margin-bottom: 20px; text-align: left; }
-    .bloco7 p { color: #000; font-size: 1.1em; line-height: 1.6; text-align: left; }
-
-    .col-md-4 { margin-top: 100px; width: 100px; justify-items: center; }
-    .card-footer.text-muted.text-end { color: var(--green-primary) !important; text-align: center !important; background-color: var(--rosa-claro); }
-    .card-text { color: var(--text-dark) !important; width: 200px; margin: 32px; margin-top: 1px; font-size: 15px !important; text-align: center; }
-    .d-flex.justify-content-center { width: auto !important; height: 250px !important; max-width: 100% !important; justify-content: center !important; }
-    .carousel-item { width: 1000px !important; height: auto !important; }
-    .depoimento-card { width: 1500px !important; min-height: 18rem !important; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .depoimento-body { font-size: 1.1rem; width: 500rem !important; }
-    .depoimento-footer { font-size: 1rem; color: var(--green-primary); width: 1000px !important; height: auto !important; }
-    .card-body { width: 1000px !important; max-width: 100% !important; }
-    .fab.fa-instagram, .fab.fa-facebook, .fab.fa-linkedin { font-size: 22px; margin: 5px; }
-
-    @media (max-width: 992px) { .depoimento-card { width: 20rem; min-height: 16rem; } }
-    @media (max-width: 576px) { 
-      .depoimento-card { width: 16rem; min-height: 14rem; }
-      .depoimento-body { font-size: 1rem; }
-      .depoimento-footer { font-size: 0.9rem; }
+    
+    .card-footer.text-muted.text-end { 
+      color: var(--green-primary) !important; 
+      text-align: center !important; 
+      background-color: var(--rosa-claro); 
+    }
+    
+    #carouselDepoimentos .card-text { 
+      color: var(--text-dark) !important; 
+      width: 100% !important; 
+      margin: 20px auto; 
+      font-size: 16px !important; 
+      text-align: center !important; 
+    }
+    
+    #carouselDepoimentos .d-flex.justify-content-center { 
+      height: auto !important; 
+      padding: 20px 0; 
     }
 
     .crp-link { position: relative; color: #0077cc; text-decoration: none; font-weight: bold; }
@@ -577,7 +383,7 @@
     }
     .crp-link:hover::after, .crp-link:hover::before { opacity: 1; }
     
-    /* CHAT STYLES */
+    /* === CHAT STYLES === */
     .chat-button {
       position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%;
       background:#25D366; display: flex; justify-content: center; align-items: center; cursor: pointer;
@@ -604,6 +410,42 @@
       padding: 6px 12px; margin: 3px; cursor: pointer; font-size: 13px; transition: background 0.2s;
     }
     .quick-reply:hover { background: #ddd; }
+
+    /* === RESPONSIVIDADE FINAL === */
+    @media (max-width: 768px) {
+      section { padding: 50px 5%; text-align: center; }
+      h3 { font-size: 1.3em; line-height: 1.4; }
+      p { font-size: 1em; line-height: 1.6; margin-bottom: 15px; }
+      
+      .bloco1, .bloco2, .bloco3, .bloco4, .bloco5, .bloco7 {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 40px 5%;
+      }
+      
+      .bloco1 h3, .bloco2 h3, .bloco3 h3, .bloco4 h3, .bloco5 h3, .bloco7 h3,
+      .bloco1 p, .bloco2 p, .bloco3 p, .bloco4 p, .bloco5 p, .bloco7 p {
+        text-align: center;
+        width: 100%;
+      }
+      
+      #como-funciona .container { flex-direction: column; align-items: center; gap: 15px; }
+      .modalidade { width: 90%; font-size: 16px; padding: 15px; text-align: center; margin: 0; }
+      .texto-box { position: static; transform: none; width: 100%; margin: 10px auto; display: none; }
+      .texto-box.mostrar { display: block; opacity: 1; }
+      
+      .btn-participar { width: 90%; font-size: 0.95em; padding: 12px; border-radius: 20px; }
+      .chat-button { width: 55px; height: 55px; bottom: 15px; right: 15px; }
+      .chat-container { width: 95%; right: 2.5%; height: 70vh; bottom: 80px; }
+    }
+
+    @media (max-width: 480px) {
+      h3 { font-size: 1.15em; }
+      p { font-size: 0.95em; }
+      .btn-participar { font-size: 0.9em; padding: 10px; }
+      .chat-button { width: 50px; height: 50px; }
+    }
   </style>
 </head>
 
@@ -646,15 +488,17 @@
       <h3>A psicoterapia é um encontro consigo mesmo</h3>
       <p>A terapia é um convite ao autoconhecimento, um caminho para enfrentar os desafios da vida com leveza e transformar-se de dentro pra fora.</p>
       <p>Chegar até aqui já é um passo importante. Talvez você esteja em busca de respostas, de acolhimento ou de um novo olhar sobre seus desafios.</p>
-      <p>E eu quero que saiba: você não está só.</p> <br><br><br>
+      <p>E eu quero que saiba: você não está só.</p>
     </div>
   </section>
+
   <section class="bloco2" id="como-funciona">
-    <div class="bloco2-texto"></div>
-    <p><h3>Como Funciona?</h3></p> 
-    <p>Durante cada sessão, você é convidado(a) a falar livremente, no seu ritmo e no seu tempo.</p>
-    <p>Não existe um roteiro ou uma lista fixa de perguntas, o que você traz é sempre o ponto de partida.</p> <br><br><br>
-    <h3>Em quais modalidades eu atendo?</h3> <br>
+    <div class="bloco2-texto">
+      <h3>Como Funciona?</h3>
+      <p>Durante cada sessão, você é convidado(a) a falar livremente, no seu ritmo e no seu tempo.</p>
+      <p>Não existe um roteiro ou uma lista fixa de perguntas, o que você traz é sempre o ponto de partida.</p> <br>
+      <h3 class="text-center w-100">Em quais modalidades eu atendo?</h3>
+    </div>
 
     <div class="container">
       <div class="modalidade" onclick="toggleTexto(this)">
@@ -677,47 +521,56 @@
   </section>
 
   <section class="bloco3" id="minha-abordagem">
-    <h3 style="color:var(--terracotta)">Minha Abordagem: Gestalt-Terapia</h3>
+    <div class="bloco3-texto w-100 text-center">
+      <h3 style="color:var(--terracotta); text-align: center;">Minha Abordagem: Gestalt-Terapia</h3>
+    </div>
     <div class="bloco4-texto">
-    <p>A Gestalt-Terapia é uma abordagem que valoriza o aqui e agora, focando na experiência presente e na consciência do indivíduo.</p>
-    <p>Ela promove o autoconhecimento, a responsabilidade pessoal e a integração entre mente e corpo, ajudando a lidar com emoções, relacionamentos e desafios da vida.</p>
-    <p>Na prática, a Gestalt-Terapia utiliza técnicas como o diálogo, a experimentação e a exploração de sonhos, incentivando a expressão autêntica e o desenvolvimento pessoal.</p>
-    <p>É uma abordagem humanista que valoriza a singularidade de cada pessoa, promovendo um espaço seguro para o crescimento e a transformação.</p>
-    <p>Se você busca uma terapia que valorize sua experiência única e promova o autoconhecimento, a Gestalt-Terapia pode ser uma excelente escolha.</p></div>
-
+      <p>A Gestalt-Terapia é uma abordagem que valoriza o aqui e agora, focando na experiência presente e na consciência do indivíduo.</p>
+      <p>Ela promove o autoconhecimento, a responsabilidade pessoal e a integração entre mente e corpo, ajudando a lidar com emoções, relacionamentos e desafios da vida.</p>
+      <p>Na prática, a Gestalt-Terapia utiliza técnicas como o diálogo, a experimentação e a exploração de sonhos, incentivando a expressão autêntica e o desenvolvimento pessoal.</p>
+      <p>É uma abordagem humanista que valoriza a singularidade de cada pessoa, promovendo um espaço seguro para o crescimento e a transformação.</p>
+      <p>Se você busca uma terapia que valorize sua experiência única e promova o autoconhecimento, a Gestalt-Terapia pode ser uma excelente escolha.</p>
+    </div>
   </section>
 
   <section class="bloco4" id="projeto-social">
-    <h3 style="color: var(--green-primary);">Projeto Social - Cuidar de quem Ensina</h3>
-    <div class="bloco4-texto"></div>
-    <strong><p>O projeto "Cuidar de quem Ensina" é uma iniciativa dedicada a oferecer suporte emocional e psicológico aos educadores, reconhecendo os desafios únicos que enfrentam no ambiente escolar.</p>
-    <p>Compreendemos que os professores desempenham um papel crucial na formação das futuras gerações, e é fundamental que eles também recebam cuidado e atenção.</p>
-    <p>Nosso objetivo é proporcionar um espaço seguro onde os educadores possam compartilhar suas experiências, explorar suas emoções e desenvolver estratégias para lidar com o estresse e a pressão do dia a dia.</p>
-    <p>Através de sessões de terapia individual e em grupo, oferecemos ferramentas para o autoconhecimento, a resiliência e o equilíbrio emocional.</p>
-    <p>Se você é educador e sente a necessidade de apoio emocional, convidamos você a fazer parte do nosso projeto. Juntos, podemos construir um ambiente mais saudável e acolhedor para quem dedica sua vida a ensinar.</p></strong>
-      <a href="projeto-social.html" target="_blank">
-    <button class="btn-participar">Quero Conhecer Melhor</button>
+    <div class="w-100 text-center">
+      <h3 style="color: var(--green-primary);">Projeto Social - Cuidar de quem Ensina</h3>
+    </div>
+    <div class="bloco4-texto">
+      <strong>
+        <p>O projeto "Cuidar de quem Ensina" é uma iniciativa dedicada a oferecer suporte emocional e psicológico aos educadores, reconhecendo os desafios únicos que enfrentam no ambiente escolar.</p>
+        <p>Compreendemos que os professores desempenham um papel crucial na formação das futuras gerações, e é fundamental que eles também recebam cuidado e atenção.</p>
+        <p>Nosso objetivo é proporcionar um espaço seguro onde os educadores possam compartilhar suas experiências, explorar suas emoções e desenvolver estratégias para lidar com o estresse e a pressão do dia a dia.</p>
+        <p>Através de sessões de terapia individual e em grupo, oferecemos ferramentas para o autoconhecimento, a resiliência e o equilíbrio emocional.</p>
+        <p>Se você é educador e sente a necessidade de apoio emocional, convidamos você a fazer parte do nosso projeto. Juntos, podemos construir um ambiente mais saudável e acolhedor para quem dedica sua vida a ensinar.</p>
+      </strong>
+    </div>
+    <a href="projeto-social.html" target="_blank">
+      <button class="btn-participar">Quero Conhecer Melhor</button>
     </a>
   </section>
 
   <section class="bloco5" id="sobre-mim">
-    <h3>Sobre Mim</h3>
+    <div class="w-100 text-center">
+      <h3>Sobre Mim</h3>
+    </div>
     <div> <img class="foto-da-linda" src="page photo init sobre mim.png" alt="Psicóloga Giovana Morais"></div>
-    <div class="bloco5-texto"></div> <br><br>
-    <strong><p>Eu sou a Psicóloga Giovana de Morais Gomes <a href="https://cadastro.cfp.org.br/visualizar.html?profissional=Myl1JupBquk88JhNGRxl0vdzDjT%2F9OffKVqNW7tXE8g%3D" target="_blank"  class="crp-link" style="color: var(--terracotta);">(CRP-PR 08/45995)</a>, 
-      formada pela Unicesumar e atualmente pós-graduanda em Gestalt-Terapia pelo Instituto Gestalt Paraná. </p>
-    <p>Escolhi a psicologia por acreditar na potência do encontro humano e na importância de um espaço de escuta verdadeira,</p>
-    <p>onde cada pessoa possa se sentir acolhida, respeitada e compreendida em sua singularidade.</p> <br>
-    <p>Ao longo da minha trajetória, idealizei o projeto “Cuidar de Quem Ensina”,voltado para educadores e profissionais da área da educação</p>
-    <p>pois acredito profundamente que quem dedica sua vida a ensinar também merece cuidado, atenção e um espaço seguro para falar de suas dores, conquistas e desafios.</p><br>
-    <p>Meu trabalho é pautado na escuta sensível, na empatia e na construção de vínculos de confiança, sempre com a delicadeza e o respeito que cada história merece.</p>
-    <p>Caminhar junto às pessoas em seus processos é, para mim, um privilégio e uma missão que levo com muita responsabilidade e amor.</p></strong>
-    
+    <div class="bloco5-texto">
+      <strong>
+        <p>Eu sou a Psicóloga Giovana de Morais Gomes <a href="https://cadastro.cfp.org.br/visualizar.html?profissional=Myl1JupBquk88JhNGRxl0vdzDjT%2F9OffKVqNW7tXE8g%3D" target="_blank" class="crp-link" style="color: var(--terracotta);">(CRP-PR 08/45995)</a>, formada pela Unicesumar e atualmente pós-graduanda em Gestalt-Terapia pelo Instituto Gestalt Paraná. </p>
+        <p>Escolhi a psicologia por acreditar na potência do encontro humano e na importância de um espaço de escuta verdadeira,</p>
+        <p>onde cada pessoa possa se sentir acolhida, respeitada e compreendida em sua singularidade.</p> 
+        <p>Ao longo da minha trajetória, idealizei o projeto “Cuidar de Quem Ensina”,voltado para educadores e profissionais da área da educação</p>
+        <p>pois acredito profundamente que quem dedica sua vida a ensinar também merece cuidado, atenção e um espaço seguro para falar de suas dores, conquistas e desafios.</p>
+        <p>Meu trabalho é pautado na escuta sensível, na empatia e na construção de vínculos de confiança, sempre com a delicadeza e o respeito que cada história merece.</p>
+        <p>Caminhar junto às pessoas em seus processos é, para mim, um privilégio e uma missão que levo com muita responsabilidade e amor.</p>
+      </strong>
+    </div>
   </section>
 
   <section class="bloco6" id="duvidas-frequentes">
     <h3>Dúvidas Frequentes</h3>
-
     <div class="accordion accordion-flush w-75 mx-auto" id="accordionFlushExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -729,7 +582,6 @@
           <div class="accordion-body">A psicoterapia é um processo de autoconhecimento e cuidado emocional, em que o paciente encontra um espaço seguro, sigiloso e acolhedor para falar sobre seus sentimentos, pensamentos e experiências. O psicólogo atua como facilitador desse processo, auxiliando na compreensão de questões internas e na construção de novas possibilidades de lidar com os desafios da vida. Ao longo das sessões, a pessoa desenvolve maior consciência de si mesma, fortalece sua autonomia e encontra caminhos para uma vida mais equilibrada e significativa.</div>
         </div>
       </div>
-
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo">
@@ -741,96 +593,89 @@
         </div>
       </div>
       <div class="accordion-item">
-  <h2 class="accordion-header">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree">
-      <strong>O que é a Gestalt-Terapia?</strong>
-    </button>
-  </h2>
-  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-    <div class="accordion-body">A Gestalt-Terapia é uma abordagem da psicologia que valoriza o aqui e agora, ajudando a pessoa a tomar consciência de seus sentimentos, pensamentos e comportamentos para promover mudanças significativas em sua vida.</div>
-  </div>
-</div>
-
-<div class="accordion-item">
-  <h2 class="accordion-header">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour">
-      <strong>Psicoterapia é só para quem está em sofrimento?</strong>
-    </button>
-  </h2>
-  <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-    <div class="accordion-body">Não. A psicoterapia também é indicada para quem deseja se conhecer melhor, desenvolver habilidades emocionais, melhorar relacionamentos e buscar mais qualidade de vida.</div>
-  </div>
-</div>
-
-<div class="accordion-item">
-  <h2 class="accordion-header">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive">
-      <strong>Qual a frequência recomendada das sessões?</strong>
-    </button>
-  </h2>
-  <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-    <div class="accordion-body">A frequência mais comum é de uma vez por semana, mas pode variar conforme a necessidade e o momento de cada pessoa.</div>
-  </div>
-</div>
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree">
+            <strong>O que é a Gestalt-Terapia?</strong>
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">A Gestalt-Terapia é uma abordagem da psicologia que valoriza o aqui e agora, ajudando a pessoa a tomar consciência de seus sentimentos, pensamentos e comportamentos para promover mudanças significativas em sua vida.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour">
+            <strong>Psicoterapia é só para quem está em sofrimento?</strong>
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Não. A psicoterapia também é indicada para quem deseja se conhecer melhor, desenvolver habilidades emocionais, melhorar relacionamentos e buscar mais qualidade de vida.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive">
+            <strong>Qual a frequência recomendada das sessões?</strong>
+          </button>
+        </h2>
+        <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">A frequência mais comum é de uma vez por semana, mas pode variar conforme a necessidade e o momento de cada pessoa.</div>
+        </div>
+      </div>
     </div>
   </section>
 
-<section class="bloco7" id="depoimentos">
-  <h3 class="text-center mb-4">Depoimentos</h3>
-
-  <div id="carouselDepoimentos" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-      <div class="carousel-item active">
-        <div class="d-flex justify-content-center">
-          <div class="card h-100 shadow-sm mx-2" style="width: 18rem;">
-            <div class="card-body">
-              <p class="card-text" ><br>"A psicoterapia me ajudou a compreender melhor minhas emoções e a lidar com situações que antes pareciam impossíveis. Foi um processo transformador."<br></p>
+  <section class="bloco7" id="depoimentos">
+    <h3 class="text-center mb-4">Depoimentos</h3>
+    <div id="carouselDepoimentos" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner w-100">
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-center">
+            <div class="card shadow-sm mx-2" style="width: 18rem;">
+              <div class="card-body">
+                <p class="card-text">"A psicoterapia me ajudou a compreender melhor minhas emoções e a lidar com situações que antes pareciam impossíveis. Foi um processo transformador."</p>
+              </div>
+              <div class="card-footer text-muted text-end">
+                <strong>Sthefany Martins, 32 anos</strong>
+              </div>
             </div>
-            <div class="card-footer text-muted text-end">
-              <strong>Sthefany Martins, 32 anos</strong>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card shadow-sm mx-2" style="width: 28rem">
+              <div class="card-body">
+                <p class="card-text">"Encontrei um espaço de acolhimento e respeito, onde pude me expressar sem julgamentos. As sessões me ajudaram a conquistar mais equilíbrio na vida pessoal e profissional."</p>
+              </div>
+              <div class="card-footer text-muted text-end">
+                <strong>Ana Maria Pereira de Matos, 45 anos</strong>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <div class="card shadow-sm mx-2" style="width: 18rem;">
+              <div class="card-body">
+                <p class="card-text">"O processo terapêutico tem sido um grande apoio para meu autoconhecimento. Hoje me sinto mais confiante e capaz de lidar com minhas escolhas."</p>
+              </div>
+              <div class="card-footer text-muted text-end">
+                <strong>Daniel Ribeiro de Souza, 27 anos</strong>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="d-flex justify-content-center">
-          <div class="card h-100 shadow-sm mx-2" style="width: 28rem">
-            <div class="card-body">
-            <p class="card-text" style="width: 20rem; text-align: center;"><br>"Encontrei um espaço de acolhimento e respeito, onde pude me expressar sem julgamentos. As sessões me ajudaram a conquistar mais equilíbrio na vida pessoal e profissional."</p>
-            </div>
-            <div class="card-footer text-muted text-end" style="width: 28rem">
-              <strong>Ana Maria Pereira de Matos, 45 anos</strong>
-            </div>
-          </div>
-        </div>
-      </div> 
-      <div class="carousel-item">
-        <div class="d-flex justify-content-center">
-          <div class="card h-100 shadow-sm mx-2" style="width: 18rem;">
-            <div class="card-body">
-              <p class="card-text"> <br>"O processo terapêutico tem sido um grande apoio para meu autoconhecimento. Hoje me sinto mais confiante e capaz de lidar com minhas escolhas."</p>
-            </div>
-            <div class="card-footer text-muted text-end">
-              <strong>Daniel Ribeiro de Souza, 27 anos</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
     </div>
-    
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
-      <span class="visually-hidden">Próximo</span>
-    </button>
-  </div>
-</section>
+  </section>
 
   <footer>
     <p>© 2025 Giovana Morais - Psicóloga Clínica <a href="https://cadastro.cfp.org.br/visualizar.html?profissional=Myl1JupBquk88JhNGRxl0vdzDjT%2F9OffKVqNW7tXE8g%3D" class="crp-link">CRP-PR: 08/45995</a></p>
@@ -848,11 +693,9 @@
       const box = element.querySelector('.texto-box');
       const isAtivo = box.classList.contains('mostrar');
 
-      // Fecha todas
       document.querySelectorAll('.texto-box').forEach(t => t.classList.remove('mostrar'));
       document.querySelectorAll('.modalidade').forEach(m => m.classList.remove('ativa'));
 
-      // Abre ou fecha o clicado
       if (!isAtivo) {
         box.classList.add('mostrar');
         element.classList.add('ativa');
@@ -860,133 +703,129 @@
     }
   </script>
 
-<div class="chat-button" id="chat-button" onclick="toggleChat()">
-  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-    <path d="M19.11 17.63c-.33-.16-1.94-.96-2.24-1.07-.3-.11-.52-.16-.74.16-.22.33-.85 1.07-1.04 1.29-.19.22-.37.24-.7.08-.33-.16-1.39-.51-2.65-1.62-.98-.87-1.64-1.94-1.83-2.27-.19-.33-.02-.51.14-.67.14-.14.33-.37.49-.55.16-.19.22-.3.33-.52.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.65-.55-.56-.74-.57h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.57 4.93.78.34 1.39.54 1.87.69.78.25 1.5.21 2.06.13.63-.09 1.94-.79 2.21-1.55.27-.76.27-1.41.19-1.55-.08-.13-.3-.22-.63-.38M16.04 27.46h-.01c-2.46 0-4.88-.66-6.99-1.9l-.5-.3-5.19 1.36 1.39-5.06-.33-.52a11.42 11.42 0 0 1-1.75-6.1c0-6.31 5.13-11.44 11.45-11.44 3.06 0 5.94 1.19 8.11 3.35a11.38 11.38 0 0 1 3.36 8.1c-.01 6.31-5.14 11.44-11.44 11.44m9.72-21.16a13.47 13.47 0 0 0-9.72-4.03c-7.44 0-13.49 6.05-13.49 13.48 0 2.38.62 4.72 1.8 6.77l-1.91 7.01 7.17-1.89a13.44 13.44 0 0 0 6.46 1.65h.01c7.43 0 13.49-6.05 13.49-13.48 0-3.6-1.4-6.98-3.81-9.51"></path>
-  </svg>
-</div>
-
-<div class="chat-container" id="chatBox">
-  <div class="chat-header">Pré-Atendimento <br> Psicóloga Giovana Morais</div>
-  <div class="chat-body" id="chatBody">
-    <div class="chat-message bot">Olá! Seja bem-vindo (a)😊</div>
-    <div class="chat-message bot">É uma alegria te atender!</div>
-    <div class="chat-message bot">Qual o seu nome?</div>
+  <div class="chat-button" id="chat-button" onclick="toggleChat()">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.11 17.63c-.33-.16-1.94-.96-2.24-1.07-.3-.11-.52-.16-.74.16-.22.33-.85 1.07-1.04 1.29-.19.22-.37.24-.7.08-.33-.16-1.39-.51-2.65-1.62-.98-.87-1.64-1.94-1.83-2.27-.19-.33-.02-.51.14-.67.14-.14.33-.37.49-.55.16-.19.22-.3.33-.52.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.65-.55-.56-.74-.57h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.57 4.93.78.34 1.39.54 1.87.69.78.25 1.5.21 2.06.13.63-.09 1.94-.79 2.21-1.55.27-.76.27-1.41.19-1.55-.08-.13-.3-.22-.63-.38M16.04 27.46h-.01c-2.46 0-4.88-.66-6.99-1.9l-.5-.3-5.19 1.36 1.39-5.06-.33-.52a11.42 11.42 0 0 1-1.75-6.1c0-6.31 5.13-11.44 11.45-11.44 3.06 0 5.94 1.19 8.11 3.35a11.38 11.38 0 0 1 3.36 8.1c-.01 6.31-5.14 11.44-11.44 11.44m9.72-21.16a13.47 13.47 0 0 0-9.72-4.03c-7.44 0-13.49 6.05-13.49 13.48 0 2.38.62 4.72 1.8 6.77l-1.91 7.01 7.17-1.89a13.44 13.44 0 0 0 6.46 1.65h.01c7.43 0 13.49-6.05 13.49-13.48 0-3.6-1.4-6.98-3.81-9.51"></path>
+    </svg>
   </div>
-  <div class="chat-footer">
-    <input type="text" id="userInput" placeholder="Digite aqui..." />
-    <button onclick="sendMessage()">Enviar</button>
+
+  <div class="chat-container" id="chatBox">
+    <div class="chat-header">Pré-Atendimento <br> Psicóloga Giovana Morais</div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-message bot">Olá! Seja bem-vindo (a)😊</div>
+      <div class="chat-message bot">É uma alegria te atender!</div>
+      <div class="chat-message bot">Qual o seu nome?</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="userInput" placeholder="Digite aqui..." />
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
   </div>
-</div>
 
-<script>
-// --- SCRIPT DO BANNER ROTATIVO (NOVO) ---
-const messages = [
-  "Novo Ebook: Psicologia x Fé",
-  "Não precisa ser um campo de batalha!",
-  "Descubra como lidar com a culpa religiosa!",
-  "Oferta de Lançamento - Aproveite!",
-  "De R$47,90 por Apenas R$14,90"
-];
-let currentIndex = 0;
-const bannerText = document.getElementById("banner-text");
+  <script>
+  const messages = [
+    "Novo Ebook: Psicologia x Fé",
+    "Não precisa ser um campo de batalha!",
+    "Descubra como lidar com a culpa religiosa!",
+    "Oferta de Lançamento - Aproveite!",
+    "De R$47,90 por Apenas R$14,90"
+  ];
+  let currentIndex = 0;
+  const bannerText = document.getElementById("banner-text");
 
-function rotateText() {
-  bannerText.classList.add("animate__animated", "animate__fadeOut");
-  
-  setTimeout(() => {
-    currentIndex = (currentIndex + 1) % messages.length;
-    bannerText.innerText = messages[currentIndex];
-    bannerText.classList.remove("animate__fadeOut");
-    bannerText.classList.add("animate__fadeIn");
-  }, 500); // Tempo para o fadeOut completar
-}
-
-// Troca o texto a cada 3.5 segundos
-setInterval(rotateText, 5000);
-
-function closeBanner() {
-  const banner = document.getElementById("top-banner");
-  banner.style.transform = "translateY(-100%)"; // Desliza para cima
-  document.body.style.paddingTop = "0"; // Remove o espaço extra
-}
-
-// --- SCRIPT DO CHATBOT ---
-let step = 0;
-let userData = { nome: "" };
-
-function toggleChat() {
-  let chat = document.getElementById("chatBox");
-  chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
-}
-
-document.getElementById("userInput").addEventListener("keydown", function(e){
-  if(e.key === "Enter") sendMessage();
-});
-
-function sendMessage(customMessage = null) {
-  let input = document.getElementById("userInput");
-  let message = customMessage || input.value.trim();
-  if (!message) return;
-
-  addMessage(message, "user");
-  input.value = "";
-
-  switch(step) {
-    case 0 :
-      userData.nome = message;
-      setTimeout(() => { addMessage(`Prazer, ${userData.nome}! O que você está buscando com a psicoterapia?"`, "bot"); }, 800);
-      step++; break;   
-    case 1:
-      userData.demanda = message;
-      setTimeout(() => {
-        addMessage("Qual o motivo do seu contato", "bot");
-        showQuickReplies(["agendar uma consulta", "dúvidas sobre terapia", "outros"]);
-      }, 800);
-      step++; break;   
-    case 2:
-      userData.motivo = message;
-      setTimeout(() => {
-        addMessage("Anotado", "bot");
-        addMessage("Estou redirecionando você para o WhatsApp", "bot");
-
-        let numero = "5544997112467";
-        let texto = `*Pré-Atendimento*\n Meu nome é ${userData.nome}\n Minha demanda é ${userData.demanda} \n E o motivo do meu contato é ${userData.motivo}`;
-        let url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
-        window.open(url, "_blank");
-      }, 800);
-      step++; break;
+  function rotateText() {
+    bannerText.classList.add("animate__animated", "animate__fadeOut");
+    
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % messages.length;
+      bannerText.innerText = messages[currentIndex];
+      bannerText.classList.remove("animate__fadeOut");
+      bannerText.classList.add("animate__fadeIn");
+    }, 500); 
   }
-}
 
-function addMessage(text, sender) {
-  let chatBody = document.getElementById("chatBody");
-  let msg = document.createElement("div");
-  msg.classList.add("chat-message", sender);
-  msg.innerText = text;
-  chatBody.appendChild(msg);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
+  setInterval(rotateText, 5000);
 
-function showQuickReplies(options) {
-  let chatBody = document.getElementById("chatBody");
-  let container = document.createElement("div");
-  container.classList.add("quick-replies");
+  function closeBanner() {
+    const banner = document.getElementById("top-banner");
+    banner.style.transform = "translateY(-100%)"; 
+    document.body.style.paddingTop = "0"; 
+  }
 
-  options.forEach(option => {
-    let btn = document.createElement("div");
-    btn.classList.add("quick-reply");
-    btn.innerText = option;
-    btn.onclick = () => { container.remove(); sendMessage(option); };
-    container.appendChild(btn);
+  let step = 0;
+  let userData = { nome: "" };
+
+  function toggleChat() {
+    let chat = document.getElementById("chatBox");
+    chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
+  }
+
+  document.getElementById("userInput").addEventListener("keydown", function(e){
+    if(e.key === "Enter") sendMessage();
   });
 
-  chatBody.appendChild(container);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-</script>
-   
+  function sendMessage(customMessage = null) {
+    let input = document.getElementById("userInput");
+    let message = customMessage || input.value.trim();
+    if (!message) return;
 
+    addMessage(message, "user");
+    input.value = "";
+
+    switch(step) {
+      case 0 :
+        userData.nome = message;
+        setTimeout(() => { addMessage(`Prazer, ${userData.nome}! O que você está buscando com a psicoterapia?"`, "bot"); }, 800);
+        step++; break;   
+      case 1:
+        userData.demanda = message;
+        setTimeout(() => {
+          addMessage("Qual o motivo do seu contato", "bot");
+          showQuickReplies(["agendar uma consulta", "dúvidas sobre terapia", "outros"]);
+        }, 800);
+        step++; break;   
+      case 2:
+        userData.motivo = message;
+        setTimeout(() => {
+          addMessage("Anotado", "bot");
+          addMessage("Estou redirecionando você para o WhatsApp", "bot");
+
+          let numero = "5544997112467";
+          let texto = `*Pré-Atendimento*\n Meu nome é ${userData.nome}\n Minha demanda é ${userData.demanda} \n E o motivo do meu contato é ${userData.motivo}`;
+          let url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+          window.open(url, "_blank");
+        }, 800);
+        step++; break;
+    }
+  }
+
+  function addMessage(text, sender) {
+    let chatBody = document.getElementById("chatBody");
+    let msg = document.createElement("div");
+    msg.classList.add("chat-message", sender);
+    msg.innerText = text;
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function showQuickReplies(options) {
+    let chatBody = document.getElementById("chatBody");
+    let container = document.createElement("div");
+    container.classList.add("quick-replies");
+
+    options.forEach(option => {
+      let btn = document.createElement("div");
+      btn.classList.add("quick-reply");
+      btn.innerText = option;
+      btn.onclick = () => { container.remove(); sendMessage(option); };
+      container.appendChild(btn);
+    });
+
+    chatBody.appendChild(container);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+  </script>
+   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 </body>
